@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ml_info -- Gather information about CDP ML Workspaces &mdash; cloudera.cloud 0.1.0 documentation</title>
+  <title>ml_info -- Gather information about CDP ML Workspaces &mdash; cloudera.cloud 1.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="opdb – Create or destroy CDP OpDB Databases" href="opdb.html" />
+    <link rel="next" title="ml_workspace_access – Grant and revoke user access to CDP Machine Learning Workspaces" href="ml_workspace_access.html" />
     <link rel="prev" title="ml – Create or Destroy CDP Machine Learning Workspaces" href="ml.html" /> 
 </head>
 
@@ -93,7 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="datalake_runtime_info.html">datalake_runtime_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datahub_cluster.html">datahub_cluster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datahub_cluster_info.html">datahub_cluster_info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datahub_definition_info.html">datahub_definition_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datahub_template_info.html">datahub_template_info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df.html">df</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df_info.html">df_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dw_cluster.html">dw_cluster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dw_cluster_info.html">dw_cluster_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env.html">env</a></li>
@@ -109,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="env_telemetry.html">env_telemetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env_user_sync.html">env_user_sync</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env_user_sync_info.html">env_user_sync_info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freeipa_info.html">freeipa_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iam_group.html">iam_group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iam_group_info.html">iam_group_info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iam_resource_role_info.html">iam_resource_role_info</a></li>
@@ -123,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#status">Status</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ml_workspace_access.html">ml_workspace_access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opdb.html">opdb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opdb_info.html">opdb_info</a></li>
 </ul>
@@ -333,12 +338,64 @@ Required with <code class="docutils literal notranslate"><span class="pre">name<
 <td><p>The information about the named Workspace or Workspaces</p></td>
 </tr>
 <tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>instanceName</strong></p>
+<td colspan="3"><p><strong>cloudPlatform</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 </td>
 <td><p>always</p></td>
-<td><p>The name of the workspace.</p></td>
+<td><p>The cloud platform of the environment that was used to create this workspace.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>clusterBaseDomain</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>when supported</p></td>
+<td><p>The basedomain of the cluster.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>creationDate</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Creation date of workspace (date-time).</p>
+<p><br /></p>
+<p><strong>Sample:</strong></p>
+<p>2021-05-19T15:35:17.997000+00:00</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>creatorCrn</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The CRN of the creator of the workspace.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>crn</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The CRN of the workspace.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>endpointPublicAccess</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Flag indicating if the cluster is publicly accessible.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>environmentCrn</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>CRN of the environment.</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td colspan="3"><p><strong>environmentName</strong></p>
@@ -347,6 +404,224 @@ Required with <code class="docutils literal notranslate"><span class="pre">name<
 </td>
 <td><p>always</p></td>
 <td><p>The name of the workspace’s environment.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>failureMessage</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>during failure</p></td>
+<td><p>Failure message from the most recent failure that has occurred during workspace provisioning.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>filesystemID</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>governanceEnabled</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</td>
+<td><p>when supported</p></td>
+<td><p>Flag indicating if Cloudera Atlas governance is enabled for the cluster.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>healthInfoLists</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</td>
+<td></td>
+<td><p>The health info information of the workspace.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td colspan="2"><p><strong>HealthInfo</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">array</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Healthinfo  object  contains  the health information of a resource.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>details</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">array</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The detail of the health info.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>isHealthy</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The boolean that indicates the health status.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>message</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The message to show for the health info.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>resourceName</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The resource name being checked.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>updatedAt</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The unix timestamp for the heartbeat.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td colspan="3"><p><strong>httpsEnabled</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Indicates if HTTPS communication was enabled on this workspace when provisioned.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>instanceGroups</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">array</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The instance groups details for the cluster.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td colspan="2"><p><strong>instanceCount</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The initial number of instance nodes.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td colspan="2"><p><strong>instanceGroupName</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The unique name of the instance group.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td colspan="2"><p><strong>instanceType</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The cloud provider instance type for the node instances.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td colspan="2"><p><strong>instances</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Instances in the instance group.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>availabilityZone</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Availability zone of the instance.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>instanceId</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Unique instance Id generated by the cloud provider.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td colspan="2"><p><strong>maxInstances</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The maximum number of instances that can be deployed to this instance group.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td colspan="2"><p><strong>minInstances</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The minimum number of instances that can be deployed to this instance group. If the value is 0, the group might be empty.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td colspan="2"><p><strong>tags</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Key/value pairs applied to all applicable resources deployed in cloud provider.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>key</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Tag name</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p><strong>value</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>Tag value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>instanceName</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The name of the workspace.</p></td>
 </tr>
 <tr class="row-odd"><td></td>
 <td colspan="3"><p><strong>instanceStatus</strong></p>
@@ -365,76 +640,12 @@ Required with <code class="docutils literal notranslate"><span class="pre">name<
 <td><p>URL of the workspace’s user interface.</p></td>
 </tr>
 <tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>environmentCrn</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>CRN of the environment.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td colspan="3"><p><strong>crn</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>The CRN of the workspace.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
 <td colspan="3"><p><strong>k8sClusterName</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 </td>
 <td><p>always</p></td>
 <td><p>The Kubernetes cluster name.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td colspan="3"><p><strong>creatorCrn</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>The CRN of the creator of the workspace.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>version</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>The version of Cloudera Machine Learning that  was  installed on the workspace.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td colspan="3"><p><strong>httpsEnabled</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>Indicates   if   HTTPs  communication  was  enabled  on  this workspace when provisioned.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>filesystemID</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>A filesystem ID referencing the filesystem that  was  created on the cloud provider environment that this workspace uses.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td colspan="3"><p><strong>cloudPlatform</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>The cloud platform of the environment that was used to create this workspace.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>monitoringEnabled</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>If usage monitoring is enabled or not on this workspace.</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td colspan="3"><p><strong>loadBalancerIPWhitelists</strong></p>
@@ -445,96 +656,63 @@ Required with <code class="docutils literal notranslate"><span class="pre">name<
 <td><p>The whitelist of ips for loadBalancer.</p></td>
 </tr>
 <tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>creationDate</strong></p>
+<td colspan="3"><p><strong>modelMetricsEnabled</strong></p>
 <p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
 </td>
-<td><p>always</p></td>
-<td><p>Creation date of workspace.</p></td>
+<td><p>when supported</p></td>
+<td><p>Flag indicating if model metrics export is enabled for the cluster.</p></td>
 </tr>
 <tr class="row-even"><td></td>
-<td colspan="3"><p><strong>failureMessage</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>during failure</p></td>
-<td><p>Failure  message  from  the  most  recent  failure  that  has occurred during workspace provisioning.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td colspan="3"><p><strong>healthInfoLists</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</td>
-<td></td>
-<td><p>The health info information of the workspace.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td colspan="2"><p><strong>HealthInfo</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">array</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>Healthinfo  object  contains  the health information of a resource.</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td><p><strong>resourceName</strong></p>
-<p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
-</td>
-<td><p>always</p></td>
-<td><p>The resource name being checked.</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td><p><strong>isHealthy</strong></p>
+<td colspan="3"><p><strong>monitoringEnabled</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
 </td>
 <td><p>always</p></td>
-<td><p>The boolean that indicates the health status.</p></td>
+<td><p>If usage monitoring is enabled or not on this workspace.</p></td>
 </tr>
 <tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-<td><p><strong>updatedAt</strong></p>
+<td colspan="3"><p><strong>tags</strong></p>
 <p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </td>
 <td><p>always</p></td>
-<td><p>The unix timestamp for the heartbeat.</p></td>
+<td><p>Tags provided by the user at the time of workspace creation.</p></td>
 </tr>
 <tr class="row-even"><td></td>
 <td></td>
-<td></td>
-<td><p><strong>message</strong></p>
+<td colspan="2"><p><strong>key</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 </td>
 <td><p>always</p></td>
-<td><p>The message to show for the health info.</p></td>
+<td><p>Tag name</p></td>
 </tr>
 <tr class="row-odd"><td></td>
 <td></td>
-<td></td>
-<td><p><strong>details</strong></p>
+<td colspan="2"><p><strong>value</strong></p>
 <p><br /></p>
-<p><code class="docutils literal notranslate"><span class="pre">array</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 </td>
 <td><p>always</p></td>
-<td><p>The detail of the health info.</p></td>
+<td><p>Tag value</p></td>
 </tr>
-<tr class="row-even"><td colspan="4"><p><strong>sdk_out</strong></p>
+<tr class="row-even"><td></td>
+<td colspan="3"><p><strong>version</strong></p>
+<p><br /></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</td>
+<td><p>always</p></td>
+<td><p>The version of Cloudera Machine Learning that was installed on the workspace.</p></td>
+</tr>
+<tr class="row-odd"><td colspan="4"><p><strong>sdk_out</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 </td>
 <td><p>when supported</p></td>
 <td><p>Returns the captured CDP SDK log.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="4"><p><strong>sdk_out_lines</strong></p>
+<tr class="row-even"><td colspan="4"><p><strong>sdk_out_lines</strong></p>
 <p><br /></p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </td>
@@ -568,7 +746,7 @@ Required with <code class="docutils literal notranslate"><span class="pre">name<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="opdb.html" class="btn btn-neutral float-right" title="opdb – Create or destroy CDP OpDB Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ml_workspace_access.html" class="btn btn-neutral float-right" title="ml_workspace_access – Grant and revoke user access to CDP Machine Learning Workspaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ml.html" class="btn btn-neutral float-left" title="ml – Create or Destroy CDP Machine Learning Workspaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

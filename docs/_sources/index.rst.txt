@@ -13,7 +13,10 @@ cloudera.cloud Ansible Collection
    datalake_runtime_info <datalake_runtime_info>
    datahub_cluster <datahub_cluster>
    datahub_cluster_info <datahub_cluster_info>
+   datahub_definition_info <datahub_definition_info>
    datahub_template_info <datahub_template_info>
+   df <df>
+   df_info <df_info>
    dw_cluster <dw_cluster>
    dw_cluster_info <dw_cluster_info>
    env <env>
@@ -29,12 +32,14 @@ cloudera.cloud Ansible Collection
    env_telemetry <env_telemetry>
    env_user_sync <env_user_sync>
    env_user_sync_info <env_user_sync_info>
+   freeipa_info <freeipa_info>
    iam_group <iam_group>
    iam_group_info <iam_group_info>
    iam_resource_role_info <iam_resource_role_info>
    iam_user_info <iam_user_info>
    ml <ml>
    ml_info <ml_info>
+   ml_workspace_access <ml_workspace_access>
    opdb <opdb>
    opdb_info <opdb_info>
 
@@ -54,7 +59,8 @@ Requirements for running the collection
 The CDP collection requires the `cdpy <CdpyRepo_>`_ Python library, which is a simple Pythonic wrapper to the 
 `CDP CLI/SDK <CdpCliPip_>`_ Python library. You also need to have an `API access key <CdpApiAccessKey_>`_ for your CDP
 account. The collection also assumes that you have provisioned the necessary cloud provider resources used by the 
-various CDP functions (see `AWS Requirements <CdpAwsRequirements_>`_ and `Azure Requirements <CdpAzureRequirements_>`_).
+various CDP functions (see `AWS Requirements <CdpAwsRequirements_>`_ and `Azure Requirements <CdpAzureRequirements_>`_);
+this collection will not provision these cloud resources.
 
 Installing the collection from GitHub
 -------------------------------------
@@ -84,6 +90,12 @@ using:
 .. code-block:: bash
 
    pip install cdpy
+
+The ``requirements.txt`` file declares this library. You can install it via ``pip``:
+
+.. code-block:: bash
+
+   pip install -r requirements.txt
 
 Using the collection in your playbooks
 --------------------------------------

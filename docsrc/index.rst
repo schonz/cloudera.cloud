@@ -13,7 +13,10 @@ cloudera.cloud Ansible Collection
    datalake_runtime_info <datalake_runtime_info>
    datahub_cluster <datahub_cluster>
    datahub_cluster_info <datahub_cluster_info>
+   datahub_definition_info <datahub_definition_info>
    datahub_template_info <datahub_template_info>
+   df <df>
+   df_info <df_info>
    dw_cluster <dw_cluster>
    dw_cluster_info <dw_cluster_info>
    env <env>
@@ -29,12 +32,14 @@ cloudera.cloud Ansible Collection
    env_telemetry <env_telemetry>
    env_user_sync <env_user_sync>
    env_user_sync_info <env_user_sync_info>
+   freeipa_info <freeipa_info>
    iam_group <iam_group>
    iam_group_info <iam_group_info>
    iam_resource_role_info <iam_resource_role_info>
    iam_user_info <iam_user_info>
    ml <ml>
    ml_info <ml_info>
+   ml_workspace_access <ml_workspace_access>
    opdb <opdb>
    opdb_info <opdb_info>
 
